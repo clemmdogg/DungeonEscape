@@ -21,6 +21,10 @@ namespace DungeonEscape.Files
                 HighScore = highScore;
             }
         }
+        /// <summary>
+        /// Test if the score is good enough tó the highscore and adds it if it is.
+        /// </summary>
+        /// <param name="highScore"></param>
         public static void AddHighScore(int highScore)
         {
             List<HighScoreAchiever> highScoreList = new List<HighScoreAchiever>();
@@ -57,6 +61,10 @@ namespace DungeonEscape.Files
                 return;
             }
         }
+        /// <summary>
+        /// Prints the highscore.
+        /// </summary>
+        /// <param name="highScoreList"></param>
         public static void PrintHighScoreList(List<HighScoreAchiever> highScoreList)
         {
             Console.Clear();
@@ -69,7 +77,10 @@ namespace DungeonEscape.Files
             }
             Console.ReadKey();
         }
-
+        /// <summary>
+        /// Gets the gamer tag from the user.
+        /// </summary>
+        /// <returns></returns>
         public static string GetGamerTag()
         {
             string gamerTag = "";
@@ -88,11 +99,19 @@ namespace DungeonEscape.Files
             }
             return gamerTag;
         }
+        /// <summary>
+        /// Writes to the highscore file.
+        /// </summary>
+        /// <param name="persons"></param>
         public static void SerializeHighScoreAchievers(List<HighScoreAchiever> persons)
         {
             string jsonString = JsonSerializer.Serialize(persons, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText("HighScore.json", jsonString);
         }
+        /// <summary>
+        /// Reads from the highscore file.
+        /// </summary>
+        /// <returns></returns>
         public static List<HighScoreAchiever> DeserializeHighScoreAchievers()
         {
             string jsonString = File.ReadAllText("HighScore.json");

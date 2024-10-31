@@ -10,6 +10,9 @@ namespace DungeonEscape
         {
             MainMenu();
         }
+        /// <summary>
+        /// Start the menu and the methods inside the menu
+        /// </summary>
         public static void MainMenu()
         {
             bool isUserQuittingMenu = false;

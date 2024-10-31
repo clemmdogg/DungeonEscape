@@ -11,6 +11,11 @@ namespace DungeonEscape.Files
 {
     internal class GamePlay
     {
+        /// <summary>
+        /// Takes the array of blocks as parameter and run the whole game play from that. Returns the highscore in the form of moves.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <returns></returns>
         public static int RunGamePlay(Block[] level)
         {
             bool isKeyFound = false;
@@ -77,6 +82,12 @@ namespace DungeonEscape.Files
             }
             return highScore;
         }
+        /// <summary>
+        /// Makes the new block visible.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public static Block[] MakesNewBlockVisible(Block[] level, int[] position)
         {
             for (int i = 0; i < level.Length; i++)
@@ -92,6 +103,12 @@ namespace DungeonEscape.Files
             };
             return level;
         }
+        /// <summary>
+        /// Gets the new block from level and the new position.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="newPosition"></param>
+        /// <returns></returns>
         public static Block GetNewBlock(Block[] level, int[] newPosition)
         {
             Block errorBlock = null;
@@ -108,6 +125,12 @@ namespace DungeonEscape.Files
             return errorBlock;
 
         }
+        /// <summary>
+        /// Do so the player is standing on the new position.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="newPosition"></param>
+        /// <returns></returns>
         public static Block[] MoveToNewPosition(Block[] level, int[] newPosition)
         {
             for (int i = 0; i < level.Length; i++)
@@ -123,6 +146,12 @@ namespace DungeonEscape.Files
             };
             return level;
         }
+        /// <summary>
+        /// Do so the player is not standing on the old position.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public static Block[] MoveFromOldPosition(Block[] level, int[] position)
         {
             for (int i  = 0; i < level.Length; i++)
@@ -138,6 +167,13 @@ namespace DungeonEscape.Files
             };
             return level;
         }
+        /// <summary>
+        /// Let player take turn.
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="level"></param>
+        /// <param name="isKeyFound"></param>
+        /// <returns></returns>
         public static int[] PlayersTurn(int[] position, Block[] level, bool isKeyFound)
         {
             int[] newPosition = [0, 0];
@@ -169,6 +205,13 @@ namespace DungeonEscape.Files
             }
             return newPosition;
         }
+        /// <summary>
+        /// Control is player is able to move to the block the player is trying to move to.
+        /// </summary>
+        /// <param name="newPosition"></param>
+        /// <param name="level"></param>
+        /// <param name="isKeyFound"></param>
+        /// <returns></returns>
         public static bool IsAbleToMove(int[] newPosition, Block[] level, bool isKeyFound)
         {
             bool isAbleToMove = false;
@@ -199,6 +242,9 @@ namespace DungeonEscape.Files
             }
             return isAbleToMove;
         }
+        /// <summary>
+        /// Prints out the omve text.
+        /// </summary>
         public static void MoveText()
         {
             Console.WriteLine("");
@@ -206,6 +252,11 @@ namespace DungeonEscape.Files
             Console.WriteLine("Brug piletasterne til at flytte dig..");
             Console.WriteLine("-------------------------------------------");
         }
+        /// <summary>
+        /// Translate the visual from the block objects.
+        /// </summary>
+        /// <param name="block"></param>
+        /// <returns></returns>
         public static char FieldTranslator(Block block)
         {
             if (!block.IsDiscovered) return ' ';
@@ -219,6 +270,10 @@ namespace DungeonEscape.Files
             if (block.BlockType == BlockType.Key) return 'N';
             else return 'E';
         }
+        /// <summary>
+        /// Prints out the board.
+        /// </summary>
+        /// <param name="level"></param>
         public static void VisualPrint(Block[] level)
         {
             Console.Clear();

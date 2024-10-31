@@ -32,6 +32,10 @@ namespace DungeonEscape.Files
                 Coordinates = coordinates;
             }
         }
+        /// <summary>
+        /// Lets the user choose what level to select and returns the array of blocks to that level
+        /// </summary>
+        /// <returns></returns>
         public static Block[] SetupGameMethod()
         {
             Block[] blocks = [];
