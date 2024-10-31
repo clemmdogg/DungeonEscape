@@ -88,7 +88,7 @@ namespace DungeonEscape.Files
             new Block(BlockType.Rock, false, false, [1, 4]),
             new Block(BlockType.Empty, false, false, [2, 4]),
             new Block(BlockType.Door, false, false, [3, 4]),
-            new Block(BlockType.TreasureChest, false, false, [4, 4])
+            new Block(BlockType.TreasureChest, false, true, [4, 4])
             ];
 
             return fightTheMonster;

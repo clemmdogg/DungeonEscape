@@ -43,6 +43,7 @@ namespace DungeonEscape.Files
                 PrintHighScoreList(highScoreList);
                 return;
             }
+            if (highScore > 1000) return;
             if (highScoreList.Count < 21)
             {
                 HighScoreAchiever highScoreAchiever = new HighScoreAchiever(GetGamerTag(), highScore);
@@ -67,13 +68,15 @@ namespace DungeonEscape.Files
         /// <param name="highScoreList"></param>
         public static void PrintHighScoreList(List<HighScoreAchiever> highScoreList)
         {
+            int rankCounter = 0;
             Console.Clear();
             Console.WriteLine("Highscoreliste..");
-            Console.WriteLine("-------------------------------------------------------");
+            Console.WriteLine("--------------------------------------------------------");
             highScoreList = highScoreList.OrderBy(highScoreAchiever => highScoreAchiever.HighScore).ToList();
             foreach (HighScoreAchiever highScoreAchiever in highScoreList)
             {
-                Console.WriteLine($"Gamer tag: {highScoreAchiever.GamerTag}\t\t\t\t\t Antal træk: {highScoreAchiever.HighScore}");
+                rankCounter++;
+                Console.WriteLine($"{rankCounter} {highScoreAchiever.GamerTag}\tAntal træk: {highScoreAchiever.HighScore}");
             }
             Console.ReadKey();
         }

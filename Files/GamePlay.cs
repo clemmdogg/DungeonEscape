@@ -23,6 +23,7 @@ namespace DungeonEscape.Files
             bool isGameOver = false;
             int[] position = [0, 0];
             int highScore = 0;
+            bool isGameWon = false;
             while (!isGameOver)
             {
                 highScore++;
@@ -75,12 +76,14 @@ namespace DungeonEscape.Files
                     Console.WriteLine("Du har fundet skatten. Du har vundet!!");
                     isGameOver = true;
                     isSwordFound = true;
+                    isGameWon = true;
                     Console.WriteLine("Tryk på en tast for at fortsætte..");
                     Console.ReadKey();
                 }
                 level = MakesNewBlockVisible(level, position);
             }
-            return highScore;
+            if (isGameWon) return highScore;
+            else return 100000;
         }
         /// <summary>
         /// Makes the new block visible.
@@ -264,7 +267,7 @@ namespace DungeonEscape.Files
             if (block.BlockType == BlockType.Monster) return 'M';
             if (block.BlockType == BlockType.TreasureChest) return 'X';
             if (block.BlockType == BlockType.Rock) return 'K';
-            if (block.BlockType == BlockType.Empty) return 'X';
+            if (block.BlockType == BlockType.Empty) return 'O';
             if (block.BlockType == BlockType.Sword) return 'S';
             if (block.BlockType == BlockType.Door) return 'D';
             if (block.BlockType == BlockType.Key) return 'N';
