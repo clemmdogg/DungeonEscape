@@ -70,7 +70,7 @@ namespace DungeonEscape.Files
             Console.Clear();
             Console.WriteLine("Highscoreliste..");
             Console.WriteLine("-------------------------------------------------------");
-            highScoreList.OrderBy(highScoreAchiever => highScoreAchiever.HighScore).ToList();
+            highScoreList = highScoreList.OrderBy(highScoreAchiever => highScoreAchiever.HighScore).ToList();
             foreach (HighScoreAchiever highScoreAchiever in highScoreList)
             {
                 Console.WriteLine($"Gamer tag: {highScoreAchiever.GamerTag}\t\t\t\t\t Antal træk: {highScoreAchiever.HighScore}");
