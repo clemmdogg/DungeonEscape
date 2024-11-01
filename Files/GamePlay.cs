@@ -22,6 +22,11 @@ namespace DungeonEscape.Files
             bool isSwordFound = false;
             bool isGameOver = false;
             int[] position = [0, 0];
+            Block startingBlock = level.FirstOrDefault(block => block.IsPlayerOnField.Equals(true));
+            if (startingBlock != null)
+            {
+                position = startingBlock.Coordinates;
+            }
             int highScore = 0;
             bool isGameWon = false;
             while (!isGameOver)

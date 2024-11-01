@@ -76,7 +76,7 @@ namespace DungeonEscape.Files
             foreach (HighScoreAchiever highScoreAchiever in highScoreList)
             {
                 rankCounter++;
-                Console.WriteLine($"{rankCounter} {highScoreAchiever.GamerTag}\tAntal træk: {highScoreAchiever.HighScore}");
+                Console.WriteLine($"{rankCounter}  {highScoreAchiever.GamerTag}\tAntal træk: {highScoreAchiever.HighScore}");
             }
             Console.ReadKey();
         }
